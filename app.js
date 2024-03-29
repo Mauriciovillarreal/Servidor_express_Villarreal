@@ -12,9 +12,9 @@ app.get('/products', async (req, res) => {
         const products = await productManager.getProducts();
         if (limit) {
             const limitedProducts = products.slice(0, parseInt(limit));
-            return res.json(limitedProducts);
+            return res.send(limitedProducts);
         }
-        res.json(products);
+        res.send(products);
     } catch (error) {
         console.log(error)
     }
